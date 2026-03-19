@@ -16,10 +16,11 @@ An MCP (Model Context Protocol) server for the [Whoop API](https://developer.who
 3. Add `http://localhost:3000/callback` as a redirect URI
 4. Copy your **Client ID** and **Client Secret**
 
-### 2. Install dependencies
+### 2. Install and build
 
 ```bash
 npm install
+npm run build
 ```
 
 ### 3. Configure your AI tool
@@ -29,9 +30,7 @@ The MCP server command is the same regardless of which tool you use:
 ```
 command: node
 args:
-  - --import
-  - /absolute/path/to/whoop-mcp/node_modules/tsx/dist/esm/index.cjs
-  - /absolute/path/to/whoop-mcp/src/index.ts
+  - /absolute/path/to/whoop-mcp/dist/index.js
 env:
   WHOOP_CLIENT_ID: your_client_id_here
   WHOOP_CLIENT_SECRET: your_client_secret_here
@@ -48,10 +47,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
   "mcpServers": {
     "whoop": {
       "command": "node",
-      "args": [
-        "--import", "/absolute/path/to/whoop-mcp/node_modules/tsx/dist/esm/index.cjs",
-        "/absolute/path/to/whoop-mcp/src/index.ts"
-      ],
+      "args": ["/absolute/path/to/whoop-mcp/dist/index.js"],
       "env": {
         "WHOOP_CLIENT_ID": "your_client_id_here",
         "WHOOP_CLIENT_SECRET": "your_client_secret_here"
@@ -70,10 +66,7 @@ Edit `.cursor/mcp.json` in your project root (or `~/.cursor/mcp.json` globally):
   "mcpServers": {
     "whoop": {
       "command": "node",
-      "args": [
-        "--import", "/absolute/path/to/whoop-mcp/node_modules/tsx/dist/esm/index.cjs",
-        "/absolute/path/to/whoop-mcp/src/index.ts"
-      ],
+      "args": ["/absolute/path/to/whoop-mcp/dist/index.js"],
       "env": {
         "WHOOP_CLIENT_ID": "your_client_id_here",
         "WHOOP_CLIENT_SECRET": "your_client_secret_here"
